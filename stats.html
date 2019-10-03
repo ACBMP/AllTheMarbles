@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+		border-collapse: collapse;
+		text-align: left;
+	}
+
+</style>
+
+<body>
+
+	<table style="width:100%">
+		
+		<tr>
+		{%for item in stats.columns %}
+			<th> {{ item }} </th>
+		{%endfor%}
+		</tr>
+
+		{% for i in range( stats|length ) %}
+			{%if stats.values[i,0] == "0"%}
+			<tr><td colspan="11"></td></tr>
+			{%elif stats.values[0,0] != 0%}
+			<tr>
+				{%for item in stats.values[i] %}
+					{%if item != 0 %}
+						<td> {{ item }} </td>
+					{%else%}
+						<td></td>	
+					{%endif%}
+				{%endfor%}
+			</tr>
+			{%endif%}
+		{%endfor%}
+	</table>
+
+<img src="" width="" height="">
+
+</body>
+</html>
